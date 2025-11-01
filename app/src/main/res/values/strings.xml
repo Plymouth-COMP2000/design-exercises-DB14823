@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Restaurant Name</string>
+    <string name="login_staff">Login as Staff</string>
+    <string name="login_customer">Login as Customer</string>
+    <string name="view_menu_noLog">View Menu (No Login Required)</string>
+    <string name="view_menu">View Menu</string>
+    <string name="customer_login">Customer Login</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_back">Back</string>
+    <string name="restaurant_name">Restaurant Name</string>
+    <string name="welcome_message">Welcome %1$s,\nWhat would you like to do?</string>
+    <string name="logout">Log out</string>
+    <string name="notifications">Notifications</string>
+    <string name="enter_email">Enter email address</string>
+    <string name="placeholder_email">johnsmith@email.com</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="placeholder_password">Password123!</string>
+    <string name="continue_button">Continue</string>
+    <string name="not_user">Not a user? Create account</string>
+    <string name="here">here</string>
+    <string name="menu">Menu</string>
+    <string name="food_image">Food image</string>
+    <string name="view_bookings">View bookings</string>
+    <string name="your_bookings">Your Bookings</string>
+    <string name="no_bookings">You have no bookings yet.</string>
+    <string name="back">Back</string>
+</resources>
