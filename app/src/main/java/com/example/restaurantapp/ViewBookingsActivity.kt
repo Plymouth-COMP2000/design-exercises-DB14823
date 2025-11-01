@@ -22,20 +22,16 @@ class ViewBookingsActivity : AppCompatActivity() {
         val makeBooking = findViewById<TextView>(R.id.txtMakeBooking)
         val backButton = findViewById<ImageView>(R.id.btnBack)
 
-        // Load bookings when screen opens
         loadBookings(layoutBookings)
 
-        // ✅ Go to "Add Booking" page
         makeBooking.setOnClickListener {
             val intent = Intent(this, AddBookingActivity::class.java)
             startActivity(intent)
         }
 
-        // ✅ Back navigation
         backButton.setOnClickListener { finish() }
     }
 
-    // ✅ Load and refresh booking entries
     private fun loadBookings(layoutBookings: LinearLayout) {
         layoutBookings.removeAllViews()
 
@@ -45,13 +41,11 @@ class ViewBookingsActivity : AppCompatActivity() {
             row.findViewById<TextView>(R.id.txtDate).text = date
             row.findViewById<TextView>(R.id.txtTime).text = time
 
-            // ✅ Delete booking
             row.findViewById<ImageView>(R.id.btnDelete).setOnClickListener {
                 bookings.remove(Pair(date, time))
                 loadBookings(layoutBookings)
             }
 
-            // ✅ Add spacing between rows
             val params = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT

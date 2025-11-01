@@ -17,13 +17,11 @@ class MenuItemDetailsActivity : AppCompatActivity() {
         val txtAllergyInfo = findViewById<TextView>(R.id.txtAllergyInfo)
         val imgFood = findViewById<ImageView>(R.id.imgFood)
 
-        // Get data passed from MenuActivity
         val name = intent.getStringExtra("foodName") ?: "Food name"
         val price = intent.getStringExtra("foodPrice") ?: "£0.00"
         val allergy = intent.getStringExtra("foodAllergy") ?: "No allergy info"
         val imageRes = intent.getIntExtra("foodImage", 0)
 
-        // Apply data to views
         txtFoodName.text = name
         txtFoodPrice.text = "Price: $price"
         txtAllergyInfo.text = "Allergy info: $allergy"
@@ -32,7 +30,6 @@ class MenuItemDetailsActivity : AppCompatActivity() {
             imgFood.setImageResource(imageRes)
         }
 
-        // Back button listener
         btnBack.setOnClickListener { finish() }
     }
 }

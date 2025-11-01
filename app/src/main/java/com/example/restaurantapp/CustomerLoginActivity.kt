@@ -29,7 +29,6 @@ class CustomerLoginActivity : AppCompatActivity() {
         val continueButton = findViewById<Button>(R.id.btnCustomerContinue)
         val createAccountText = findViewById<TextView>(R.id.txtCreateAccount)
 
-        // ✅ Make only "here" clickable & blue
         val fullText = "Not a user? Create account here"
         val spannable = SpannableString(fullText)
 
@@ -52,9 +51,8 @@ class CustomerLoginActivity : AppCompatActivity() {
 
         createAccountText.text = spannable
         createAccountText.movementMethod = LinkMovementMethod.getInstance()
-        createAccountText.highlightColor = Color.TRANSPARENT // No background on tap
+        createAccountText.highlightColor = Color.TRANSPARENT
 
-        // ✅ Login action
         continueButton.setOnClickListener {
             val email = emailInput.text.toString()
             val password = passwordInput.text.toString()
@@ -67,7 +65,6 @@ class CustomerLoginActivity : AppCompatActivity() {
             }
         }
 
-        // ✅ Back button
         backButton.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
         }

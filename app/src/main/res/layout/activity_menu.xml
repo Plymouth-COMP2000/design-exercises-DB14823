@@ -9,7 +9,6 @@
         android:layout_height="wrap_content"
         android:padding="24dp">
 
-        <!-- Back Button -->
         <ImageView
             android:id="@+id/btnBack"
             android:layout_width="28dp"
@@ -19,7 +18,6 @@
             android:layout_marginStart="16dp"
             android:contentDescription="@string/back" />
 
-        <!-- Restaurant Name -->
         <TextView
             android:id="@+id/txtRestaurantName"
             android:layout_width="wrap_content"
@@ -30,7 +28,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp" />
 
-        <!-- Menu Title -->
         <TextView
             android:id="@+id/txtMenuTitle"
             android:layout_width="wrap_content"
@@ -42,7 +39,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp" />
 
-        <!-- 2x2 Grid Layout -->
         <GridLayout
             android:id="@+id/menuGrid"
             android:layout_width="wrap_content"
@@ -54,7 +50,6 @@
             android:alignmentMode="alignMargins"
             android:useDefaultMargins="true">
 
-            <!-- Burger -->
             <LinearLayout
                 android:id="@+id/menuItemBurger"
                 android:orientation="vertical"
@@ -85,7 +80,6 @@
                     android:text="@string/tenner" />
             </LinearLayout>
 
-            <!-- Chicken -->
             <LinearLayout
                 android:id="@+id/menuItemChicken"
                 android:orientation="vertical"
@@ -116,7 +110,6 @@
                     android:text="@string/fiver" />
             </LinearLayout>
 
-            <!-- Chips -->
             <LinearLayout
                 android:id="@+id/menuItemChips"
                 android:orientation="vertical"

@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:padding="24dp">
 
-    <!-- Back Button -->
     <ImageView
         android:id="@+id/btnBack"
         android:layout_width="28dp"
@@ -14,7 +13,6 @@
         android:layout_marginStart="16dp"
         android:contentDescription="@string/back" />
 
-    <!-- Restaurant Name -->
     <TextView
         android:id="@+id/txtRestaurantName"
         android:layout_width="wrap_content"
@@ -25,7 +23,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp" />
 
-    <!-- Page Title -->
     <TextView
         android:id="@+id/txtBookingTitle"
         android:layout_width="wrap_content"
@@ -37,7 +34,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp" />
 
-    <!-- Make New Booking -->
     <TextView
         android:id="@+id/txtMakeBooking"
         android:layout_width="wrap_content"
@@ -50,7 +46,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp" />
 
-    <!-- Booking List -->
     <LinearLayout
         android:id="@+id/layoutBookings"
         android:layout_width="match_parent"

@@ -37,7 +37,6 @@ class NotificationsActivity : AppCompatActivity() {
         adapter = NotificationAdapter(notifications)
         recyclerView.adapter = adapter
 
-        // ✅ Add spacing between each notification bubble
         val spacing = (12 * resources.displayMetrics.density).toInt() // 12dp
         recyclerView.addItemDecoration(object : RecyclerView.ItemDecoration() {
             override fun getItemOffsets(
@@ -50,7 +49,6 @@ class NotificationsActivity : AppCompatActivity() {
             }
         })
 
-        // ✅ Swipe-to-delete
         val swipeToDelete = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
             override fun onMove(
                 recyclerView: RecyclerView,
@@ -69,7 +67,6 @@ class NotificationsActivity : AppCompatActivity() {
     }
 }
 
-// ✅ RecyclerView Adapter for notifications
 class NotificationAdapter(private val notificationList: List<Notification>) :
     RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder>() {
 

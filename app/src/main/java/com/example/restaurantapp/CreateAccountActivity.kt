@@ -29,7 +29,6 @@ class CreateAccountActivity : AppCompatActivity() {
         val createButton = findViewById<Button>(R.id.btnCreateAccount)
         val loginRedirect = findViewById<TextView>(R.id.txtLoginRedirect)
 
-        // ✅ Make only "here" clickable and blue
         val fullText = "Already a user? Log in here"
         val spannable = SpannableString(fullText)
 
@@ -42,7 +41,6 @@ class CreateAccountActivity : AppCompatActivity() {
         val startIndex = fullText.indexOf("here")
         val endIndex = startIndex + "here".length
 
-        // Apply clickable and blue color only to "here"
         spannable.setSpan(clickablePart, startIndex, endIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannable.setSpan(
             ForegroundColorSpan("#007AFF".toColorInt()),
@@ -55,10 +53,8 @@ class CreateAccountActivity : AppCompatActivity() {
         loginRedirect.movementMethod = LinkMovementMethod.getInstance()
         loginRedirect.highlightColor = Color.TRANSPARENT
 
-        // ✅ Back to previous screen
         backButton.setOnClickListener { finish() }
 
-        // ✅ Create account action
         createButton.setOnClickListener {
             val name = nameInput.text.toString()
             val email = emailInput.text.toString()

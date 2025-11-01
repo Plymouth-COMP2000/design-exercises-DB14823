@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:padding="24dp">
 
-    <!-- Back Button -->
     <ImageView
         android:id="@+id/btnBack"
         android:layout_width="28dp"
@@ -15,7 +14,6 @@
         android:layout_marginStart="16dp"
         android:contentDescription="@string/back" />
 
-    <!-- Restaurant Name -->
     <TextView
         android:id="@+id/txtRestaurantName"
         android:layout_width="wrap_content"
@@ -26,7 +24,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp" />
 
-    <!-- Page Title -->
     <TextView
         android:id="@+id/txtNotificationsTitle"
         android:layout_width="wrap_content"
@@ -48,7 +45,6 @@
         android:orientation="vertical"/>
 
 
-    <!-- Empty State Message -->
     <TextView
         android:id="@+id/txtNoNotifications"
         android:layout_width="wrap_content"
@@ -58,6 +54,7 @@
         android:visibility="gone"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerNotifications"
         android:layout_width="match_parent"

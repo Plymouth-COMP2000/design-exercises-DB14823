@@ -18,9 +18,6 @@
             android:name=".MenuItemDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".NotificationAdapterActivity"
-            android:exported="false" />
-        <activity
             android:name=".NotificationsActivity"
             android:exported="false" />
         <activity

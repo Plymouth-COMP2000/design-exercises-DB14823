@@ -20,7 +20,7 @@ class MenuActivity : AppCompatActivity() {
             intent.putExtra("foodName", "Burger")
             intent.putExtra("foodPrice", "£10.00")
             intent.putExtra("foodAllergy", "Contains gluten and dairy")
-            intent.putExtra("foodImage", R.drawable.burger) // Replace with real image
+            intent.putExtra("foodImage", R.drawable.burger)
             startActivity(intent)
         }
         val chickenItem: LinearLayout = findViewById(R.id.menuItemChicken)
@@ -29,7 +29,7 @@ class MenuActivity : AppCompatActivity() {
             intent.putExtra("foodName", "Chicken")
             intent.putExtra("foodPrice", "£5.00")
             intent.putExtra("foodAllergy", "Contains chicken")
-            intent.putExtra("foodImage", R.drawable.chicken) // Replace with real image
+            intent.putExtra("foodImage", R.drawable.chicken)
             startActivity(intent)
         }
         val chipsItem: LinearLayout = findViewById(R.id.menuItemChips)
@@ -38,7 +38,7 @@ class MenuActivity : AppCompatActivity() {
             intent.putExtra("foodName", "Chips")
             intent.putExtra("foodPrice", "£1.00")
             intent.putExtra("foodAllergy", "Contains potato")
-            intent.putExtra("foodImage", R.drawable.chips) // Replace with real image
+            intent.putExtra("foodImage", R.drawable.chips)
             startActivity(intent)
         }
     }

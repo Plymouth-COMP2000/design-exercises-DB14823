@@ -25,7 +25,6 @@ class AddBookingActivity : AppCompatActivity() {
         val btnConfirm = findViewById<Button>(R.id.btnConfirmBooking)
         val btnBack = findViewById<ImageView>(R.id.btnBack)
 
-        // Open Date Picker
         txtSelectDate.setOnClickListener {
             val calendar = Calendar.getInstance()
             val year = calendar.get(Calendar.YEAR)
@@ -37,7 +36,6 @@ class AddBookingActivity : AppCompatActivity() {
             }, year, month, day).show()
         }
 
-        // Open Time Picker
         txtSelectTime.setOnClickListener {
             val calendar = Calendar.getInstance()
             val hour = calendar.get(Calendar.HOUR_OF_DAY)
@@ -50,7 +48,6 @@ class AddBookingActivity : AppCompatActivity() {
             }, hour, minute, false).show()
         }
 
-        // Confirm booking
         btnConfirm.setOnClickListener {
             val date = txtSelectDate.text.toString()
             val time = txtSelectTime.text.toString()
