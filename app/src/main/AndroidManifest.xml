@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RestaurantApp">
         <activity
+            android:name=".CreateAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MenuItemDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NotificationAdapterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NotificationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddBookingActivity"
+            android:exported="false" />
+        <activity
             android:name=".ViewBookingsActivity"
             android:exported="false" />
         <activity

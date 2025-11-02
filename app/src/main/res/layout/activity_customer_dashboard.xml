@@ -47,7 +47,7 @@
         android:layout_height="100dp"
         android:text="@string/view_menu"
         android:textColor="@android:color/white"
-        android:background="@drawable/button_black_rounded"
+        android:background="@drawable/button_ripple"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/txtWelcome"
         android:layout_marginTop="30dp" />
@@ -58,7 +58,7 @@
         android:layout_height="100dp"
         android:text="@string/view_bookings"
         android:textColor="@android:color/white"
-        android:background="@drawable/button_black_rounded"
+        android:background="@drawable/button_ripple"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/btnViewMenu"
         android:layout_marginTop="30dp" />

@@ -19,7 +19,7 @@ class CustomerDashboardActivity : AppCompatActivity() {
         val btnViewBookings = findViewById<Button>(R.id.btnViewBookings)
         val imgNotification = findViewById<ImageView>(R.id.imgNotification)
 
-        val username = "Alice"
+        val username = "Oh great esteemed customer"
         txtWelcome.text = getString(R.string.welcome_message, username)
 
         txtLogout.setOnClickListener {
@@ -32,6 +32,10 @@ class CustomerDashboardActivity : AppCompatActivity() {
         }
         btnViewBookings.setOnClickListener {
             startActivity(Intent(this, ViewBookingsActivity::class.java))
+        }
+        imgNotification.setOnClickListener {
+            startActivity(Intent(this, NotificationsActivity::class.java))
+
         }
 
 
