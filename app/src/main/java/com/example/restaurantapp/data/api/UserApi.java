@@ -41,8 +41,13 @@ public class UserApi {
     public User readUser(String username) throws Exception {
         String urlStr = ApiConfig.BASE_URL + "/read_user/" + ApiConfig.STUDENT_ID + "/" + username;
 
-        JSONObject json = getJsonObject(urlStr);
-        if (json == null) return null; // 404 -> not found
+        JSONObject root = getJsonObject(urlStr);
+        if (root == null) return null;
+
+        // API doc says response is { "user": { ...fields... } }
+        // But we’ll also support a flat response just in case.
+        JSONObject json = root.optJSONObject("user");
+        if (json == null) json = root;
 
         User user = new User();
         user.username = json.optString("username");
@@ -55,6 +60,7 @@ public class UserApi {
 
         return user;
     }
+
 
     // ---------- helpers ----------
 
