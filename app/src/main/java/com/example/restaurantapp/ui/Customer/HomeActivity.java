@@ -1,10 +1,12 @@
-package com.example.restaurantapp;
+package com.example.restaurantapp.ui.Customer;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.restaurantapp.R;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -20,10 +22,10 @@ public class HomeActivity extends AppCompatActivity {
         btnCustomer.setOnClickListener(v ->
                 startActivity(new Intent(this, CustomerLoginActivity.class)));
 
-        /*btnStaff.setOnClickListener(v ->
-                startActivity(new Intent(this, StaffLoginActivity.class))); // you can stub this for now
+        /* btnStaff.setOnClickListener(v ->
+                startActivity(new Intent(this, StaffLoginActivity.class))); */
 
         btnGuest.setOnClickListener(v ->
-                startActivity(new Intent(this, MenuActivity.class))); */// goes straight to menu, no backend
+                startActivity(new Intent(this, MenuActivity.class)));
     }
 }

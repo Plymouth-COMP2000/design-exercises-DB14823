@@ -1,7 +1,5 @@
 package com.example.restaurantapp.data.api;
 
-import androidx.annotation.NonNull;
-
 import com.example.restaurantapp.model.User;
 
 import org.json.JSONObject;

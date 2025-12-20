@@ -14,7 +14,7 @@
         android:theme="@style/Theme.RestaurantApp"
         android:networkSecurityConfig="@xml/network_security_config">
         <activity
-            android:name=".HomeActivity"
+            android:name=".ui.Customer.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,10 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CustomerLoginActivity" />
-        <activity android:name=".CustomerCreateAccountActivity" />
-        <activity android:name=".CustomerDashboardActivity" />
-
+        <activity android:name=".ui.Customer.CustomerLoginActivity" />
+        <activity android:name=".ui.Customer.CustomerCreateAccountActivity" />
+        <activity android:name=".ui.Customer.CustomerDashboardActivity" />
+        <activity android:name=".ui.Customer.NotificationsActivity"/>
+        <activity android:name=".ui.Customer.CustomerBookingsActivity"/>
+        <activity android:name=".ui.Customer.MenuActivity"/>
+        <activity android:name=".ui.Customer.AddBookingActivity"/>
+        <activity android:name=".ui.Customer.MenuItemDetailsActivity"/>
 
     </application>
 

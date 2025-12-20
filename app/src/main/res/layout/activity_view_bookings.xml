@@ -46,13 +46,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp" />
 
-    <LinearLayout
-        android:id="@+id/layoutBookings"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBookings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtMakeBooking"
         android:layout_marginTop="24dp"
-        android:orientation="vertical"
-        android:gravity="center_horizontal" />
+        />
+
+
 
 </RelativeLayout>

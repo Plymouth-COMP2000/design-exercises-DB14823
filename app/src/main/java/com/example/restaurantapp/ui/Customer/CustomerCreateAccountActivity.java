@@ -1,4 +1,4 @@
-package com.example.restaurantapp;
+package com.example.restaurantapp.ui.Customer;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.restaurantapp.R;
 import com.example.restaurantapp.data.api.UserApi;
 import com.example.restaurantapp.model.User;
 
@@ -57,15 +58,14 @@ public class CustomerCreateAccountActivity extends AppCompatActivity {
                 return;
             }
 
-            // Use email as username (simple + matches your UI)
             User newUser = new User();
             newUser.username = email;
             newUser.password = password;
-            newUser.firstname = name;   // you only have one name field in UI
-            newUser.lastname = "";      // not collected
+            newUser.firstname = name;
+            newUser.lastname = "";
             newUser.email = email;
-            newUser.contact = "";       // not collected
-            newUser.usertype = "customer"; // IMPORTANT: customer account type
+            newUser.contact = "";
+            newUser.usertype = "customer";
 
             createAccount(newUser);
         });
@@ -76,12 +76,10 @@ public class CustomerCreateAccountActivity extends AppCompatActivity {
             try {
                 UserApi api = new UserApi();
 
-                // Ensure student DB exists (ignore if already exists)
                 try {
                     api.createStudent();
                 } catch (Exception ignored) { }
 
-                // Prevent duplicates (nice UX)
                 User existing = api.readUser(newUser.username);
                 if (existing != null) {
                     runOnUiThread(() ->

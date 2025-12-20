@@ -1,4 +1,4 @@
-package com.example.restaurantapp;
+package com.example.restaurantapp.ui.Customer;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.restaurantapp.R;
 import com.example.restaurantapp.data.api.UserApi;
 import com.example.restaurantapp.model.User;
 
@@ -40,7 +41,6 @@ public class CustomerLoginActivity extends AppCompatActivity {
 
         btnBack.setOnClickListener(v -> finish());
 
-        // If coming back from create account, prefill email
         String prefill = getIntent().getStringExtra("PREFILL_USERNAME");
         if (prefill != null) {
             edtEmail.setText(prefill);
@@ -76,14 +76,12 @@ public class CustomerLoginActivity extends AppCompatActivity {
                     }
                     System.out.println("DEBUG usertype = " + user.usertype);
 
-                    // Ensure this is a customer account
                     if (!"customer".equalsIgnoreCase(user.usertype)) {
                         Toast.makeText(this, "That account is not a customer account", Toast.LENGTH_SHORT).show();
                         return;
                     }
 
-                    // Optional password validation:
-                    // If API returns a password, check it. If it doesn't (empty/null), allow login by existence.
+
                     if (!TextUtils.isEmpty(user.password) && !enteredPassword.equals(user.password)) {
                         Toast.makeText(this, "Incorrect password", Toast.LENGTH_SHORT).show();
                         return;
