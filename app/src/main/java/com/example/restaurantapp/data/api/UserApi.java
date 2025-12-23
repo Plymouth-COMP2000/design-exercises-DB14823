@@ -13,13 +13,11 @@ import java.net.URL;
 
 public class UserApi {
 
-    // 1) Create your student DB on the server
     public void createStudent() throws Exception {
         String urlStr = ApiConfig.BASE_URL + "/create_student/" + ApiConfig.STUDENT_ID;
         postJson(urlStr, null); // no body required
     }
 
-    // 2) Create a user in your student DB
     public void createUser(User user) throws Exception {
         String urlStr = ApiConfig.BASE_URL + "/create_user/" + ApiConfig.STUDENT_ID;
 
@@ -35,15 +33,13 @@ public class UserApi {
         postJson(urlStr, body);
     }
 
-    // 3) Read a user
     public User readUser(String username) throws Exception {
         String urlStr = ApiConfig.BASE_URL + "/read_user/" + ApiConfig.STUDENT_ID + "/" + username;
 
         JSONObject root = getJsonObject(urlStr);
         if (root == null) return null;
 
-        // API doc says response is { "user": { ...fields... } }
-        // But we’ll also support a flat response just in case.
+
         JSONObject json = root.optJSONObject("user");
         if (json == null) json = root;
 
@@ -60,9 +56,7 @@ public class UserApi {
     }
 
 
-    // ---------- helpers ----------
 
-    // GET JSON, return null if 404 (not found)
     private static JSONObject getJsonObject(String urlStr) throws Exception {
         URL url = new URL(urlStr);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -83,7 +77,6 @@ public class UserApi {
         return new JSONObject(sb.toString());
     }
 
-    // POST with optional JSON body (null body allowed)
     private static void postJson(String urlStr, JSONObject body) throws Exception {
         URL url = new URL(urlStr);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -101,12 +94,10 @@ public class UserApi {
         }
 
         int code = conn.getResponseCode();
-        // Many APIs return 200/201 on success
         if (code != 200 && code != 201) {
             throw new Exception("HTTP " + code);
         }
 
-        // consume response (optional but good practice)
         BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         while (br.readLine() != null) { /* ignore */ }
         br.close();

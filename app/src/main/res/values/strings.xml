@@ -53,4 +53,9 @@
     <string name="not_user">Not a user?Create account here</string>
     <string name="already_user">Already have an account? Log in here</string>
     <string name="no_bookings_yet">No Bookings yet</string>
+    <string name="staff_number">Enter Staff Number</string>
+    <string name="staff_number_placeholder">123456789</string>
+    <string name="manage_menu">Manage Menu</string>
+    <string name="manage_bookings">Manage Bookings</string>
+    <string name="staff_welcome">Hello, valued member of staff</string>
 </resources>

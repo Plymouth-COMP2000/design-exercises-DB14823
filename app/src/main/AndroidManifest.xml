@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -9,10 +10,10 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.RestaurantApp"
-        android:networkSecurityConfig="@xml/network_security_config">
+        android:theme="@style/Theme.RestaurantApp">
         <activity
             android:name=".ui.Customer.HomeActivity"
             android:exported="true">
@@ -25,11 +26,13 @@
         <activity android:name=".ui.Customer.CustomerLoginActivity" />
         <activity android:name=".ui.Customer.CustomerCreateAccountActivity" />
         <activity android:name=".ui.Customer.CustomerDashboardActivity" />
-        <activity android:name=".ui.Customer.NotificationsActivity"/>
-        <activity android:name=".ui.Customer.CustomerBookingsActivity"/>
-        <activity android:name=".ui.Customer.MenuActivity"/>
-        <activity android:name=".ui.Customer.AddBookingActivity"/>
-        <activity android:name=".ui.Customer.MenuItemDetailsActivity"/>
+        <activity android:name=".ui.Customer.NotificationsActivity" />
+        <activity android:name=".ui.Customer.CustomerBookingsActivity" />
+        <activity android:name=".ui.Customer.MenuActivity" />
+        <activity android:name=".ui.Customer.AddBookingActivity" />
+        <activity android:name=".ui.Customer.MenuItemDetailsActivity" />
+        <activity android:name=".ui.Staff.StaffLoginActivity" />
+        <activity android:name=".ui.Staff.StaffDashboardActivity" />
 
     </application>
 

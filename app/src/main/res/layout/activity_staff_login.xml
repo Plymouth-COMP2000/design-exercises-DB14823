@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/back"
+        android:src="@drawable/ic_arrow_back" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|center_horizontal"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/txtRestaurantName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:layout_marginBottom="100dp"
+            android:gravity="center_horizontal"
+            android:text="@string/restaurant_name"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/staff_number"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edtStaffNumber"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="30dp"
+            android:autofillHints="staffNumber"
+            android:background="@drawable/edittext_background"
+            android:hint="@string/staff_number_placeholder"
+            android:inputType="number"
+            android:padding="12dp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/enter_password"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edtStaffPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="40dp"
+            android:autofillHints="password"
+            android:background="@drawable/edittext_background"
+            android:hint="@string/placeholder_password"
+            android:inputType="textPassword"
+            android:padding="12dp" />
+
+        <Button
+            android:id="@+id/btnStaffContinue"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/button_ripple"
+            android:text="@string/continue_button"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+</RelativeLayout>
+

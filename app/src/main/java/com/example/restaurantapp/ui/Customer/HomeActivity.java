@@ -7,6 +7,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurantapp.R;
+import com.example.restaurantapp.ui.Staff.StaffLoginActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -22,8 +23,8 @@ public class HomeActivity extends AppCompatActivity {
         btnCustomer.setOnClickListener(v ->
                 startActivity(new Intent(this, CustomerLoginActivity.class)));
 
-        /* btnStaff.setOnClickListener(v ->
-                startActivity(new Intent(this, StaffLoginActivity.class))); */
+        btnStaff.setOnClickListener(v ->
+                startActivity(new Intent(this, StaffLoginActivity.class)));
 
         btnGuest.setOnClickListener(v ->
                 startActivity(new Intent(this, MenuActivity.class)));

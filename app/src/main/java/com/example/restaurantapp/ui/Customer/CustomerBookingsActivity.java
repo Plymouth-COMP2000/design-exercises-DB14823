@@ -36,15 +36,13 @@ public class CustomerBookingsActivity extends AppCompatActivity {
 
         TextView txtMakeBooking = findViewById(R.id.txtMakeBooking);
         txtMakeBooking.setOnClickListener(v -> {
-            Intent i = new Intent(this, AddBookingActivity.class); // use your actual activity name
+            Intent i = new Intent(this, AddBookingActivity.class);
             i.putExtra(AddBookingActivity.EXTRA_USERNAME, username);
             startActivity(i);
         });
 
-        // 1) Bind RecyclerView FIRST
         rvBookings = findViewById(R.id.rvBookings);
 
-        // 2) Create adapter SECOND
         adapter = new BookingsAdapter(booking -> {
             DatabaseHelper db = new DatabaseHelper(this);
             boolean ok = db.deleteBooking(booking.id);
@@ -54,11 +52,9 @@ public class CustomerBookingsActivity extends AppCompatActivity {
             loadBookings();
         });
 
-        // 3) Then set up RecyclerView
         rvBookings.setLayoutManager(new LinearLayoutManager(this));
         rvBookings.setAdapter(adapter);
 
-        // 4) Add spacing decoration ONCE
         rvBookings.addItemDecoration(new BookingItemSpacing(dp(8)));
     }
 

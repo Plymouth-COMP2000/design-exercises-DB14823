@@ -14,14 +14,11 @@ import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    // --- Database info ---
     private static final String DATABASE_NAME = "restaurant.db";
     private static final int DATABASE_VERSION = 2;
 
-    // --- Table name ---
     public static final String TABLE_MENU = "menu";
 
-    // --- Column names ---
     public static final String COL_ID = "id";
     public static final String COL_NAME = "name";
     public static final String COL_PRICE = "price";
@@ -37,7 +34,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-    // --- Create table SQL ---
     private static final String CREATE_MENU_TABLE =
             "CREATE TABLE " + TABLE_MENU + " (" +
                     COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -61,7 +57,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    // Called once when DB is first created
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_MENU_TABLE);
@@ -69,7 +64,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         seedMenu(db);
     }
 
-    // Called when DATABASE_VERSION is incremented
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_MENU);
@@ -78,7 +72,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    // --- Seed initial menu data ---
     private void seedMenu(SQLiteDatabase db) {
         db.execSQL(
                 "INSERT INTO " + TABLE_MENU +
@@ -99,7 +92,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         );
     }
 
-    // --- READ: get all menu items ---
     public List<MenuItem> getAllMenuItems() {
         List<MenuItem> items = new ArrayList<>();
 

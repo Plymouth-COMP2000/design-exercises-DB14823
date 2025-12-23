@@ -26,6 +26,5 @@ public class NotificationsActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Notifications opened", Toast.LENGTH_SHORT).show();
 
-        // NEXT: show notification list (later) + hook into booking updates
     }
 }

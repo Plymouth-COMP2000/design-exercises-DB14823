@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <ImageView
+        android:id="@+id/imgNotification"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="24dp"
+        android:contentDescription="@string/notifications"
+        android:src="@drawable/ic_notifications" />
+
+
+    <TextView
+        android:id="@+id/txtRestaurantName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="50dp"
+        android:text="@string/restaurant_name"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/txtWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtRestaurantName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:text="@string/staff_welcome"
+        android:textSize="20sp" />
+
+
+    <Button
+        android:id="@+id/btnManageMenu"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/txtWelcome"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_ripple"
+        android:text="@string/manage_menu"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btnManageBookings"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/btnManageMenu"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_ripple"
+        android:text="@string/manage_bookings"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/txtLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:text="@string/logout"
+        android:textSize="16sp" />
+
+</RelativeLayout>

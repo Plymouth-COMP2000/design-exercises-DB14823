@@ -25,8 +25,8 @@ public class AddBookingActivity extends AppCompatActivity {
     private TextView txtSelectTime;
     private Button btnConfirm;
 
-    private String selectedDate = null; // store as "YYYY-MM-DD" for DB
-    private String selectedTime = null; // store as "HH:MM" for DB
+    private String selectedDate = null;
+    private String selectedTime = null;
     private String username;
 
     @Override
@@ -48,7 +48,6 @@ public class AddBookingActivity extends AppCompatActivity {
             return;
         }
 
-        // Start in a "hint" visual state
         txtSelectDate.setAlpha(0.7f);
         txtSelectTime.setAlpha(0.7f);
 
@@ -60,19 +59,12 @@ public class AddBookingActivity extends AppCompatActivity {
     private void showDatePicker() {
         Calendar cal = Calendar.getInstance();
 
-        DatePickerDialog dlg = new DatePickerDialog(
-                this,
-                (view, year, month, dayOfMonth) -> {
-                    selectedDate = String.format(Locale.UK, "%04d-%02d-%02d", year, month + 1, dayOfMonth);
-                    txtSelectDate.setText(formatDateForDisplay(year, month, dayOfMonth));
-                    markSelected(txtSelectDate);
-                },
-                cal.get(Calendar.YEAR),
-                cal.get(Calendar.MONTH),
-                cal.get(Calendar.DAY_OF_MONTH)
-        );
+        DatePickerDialog dlg = new DatePickerDialog(this, (view, year, month, dayOfMonth) -> {
+            selectedDate = String.format(Locale.UK, "%04d-%02d-%02d", year, month + 1, dayOfMonth);
+            txtSelectDate.setText(formatDateForDisplay(year, month, dayOfMonth));
+            markSelected(txtSelectDate);
+        }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
 
-        // Don’t allow past dates
         dlg.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
 
         dlg.show();
@@ -81,21 +73,14 @@ public class AddBookingActivity extends AppCompatActivity {
     private void showTimePicker() {
         Calendar cal = Calendar.getInstance();
 
-        TimePickerDialog dlg = new TimePickerDialog(
-                this,
-                (view, hourOfDay, minute) -> {
-                    // Optional: round to nearest 5 minutes (feels nicer)
-                    int roundedMinute = (int) (Math.round(minute / 5.0) * 5);
-                    if (roundedMinute == 60) roundedMinute = 55;
+        TimePickerDialog dlg = new TimePickerDialog(this, (view, hourOfDay, minute) -> {
+            int roundedMinute = (int) (Math.round(minute / 5.0) * 5);
+            if (roundedMinute == 60) roundedMinute = 55;
 
-                    selectedTime = String.format(Locale.UK, "%02d:%02d", hourOfDay, roundedMinute);
-                    txtSelectTime.setText(selectedTime);
-                    markSelected(txtSelectTime);
-                },
-                cal.get(Calendar.HOUR_OF_DAY),
-                cal.get(Calendar.MINUTE),
-                true // 24-hour
-        );
+            selectedTime = String.format(Locale.UK, "%02d:%02d", hourOfDay, roundedMinute);
+            txtSelectTime.setText(selectedTime);
+            markSelected(txtSelectTime);
+        }, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true);
 
         dlg.show();
     }

@@ -14,8 +14,8 @@ import com.example.restaurantapp.model.MenuItem;
 public class MenuItemDetailsActivity extends AppCompatActivity {
 
     public static final String EXTRA_FOOD_NAME = "FOOD_NAME";
-    public static final String EXTRA_FOOD_PRICE = "FOOD_PRICE"; // can be "£5.00" or "5.00"
-    public static final String EXTRA_FOOD_IMAGE_RES = "FOOD_IMAGE_RES"; // int drawable id
+    public static final String EXTRA_FOOD_PRICE = "FOOD_PRICE";
+    public static final String EXTRA_FOOD_IMAGE_RES = "FOOD_IMAGE_RES";
     public static final String EXTRA_ALLERGY_INFO = "ALLERGY_INFO";
     public static final String EXTRA_ITEM_ID = "ITEM_ID";
 
@@ -54,7 +54,6 @@ public class MenuItemDetailsActivity extends AppCompatActivity {
             return;
         }
 
-// Populate UI using DB values
         txtFoodName.setText(item.name);
         txtFoodPrice.setText("£" + String.format("%.2f", item.price));
         imgFood.setImageResource(item.imageRes);
