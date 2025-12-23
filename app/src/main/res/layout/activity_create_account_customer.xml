@@ -8,109 +8,111 @@
         android:id="@+id/btnBack"
         android:layout_width="28dp"
         android:layout_height="28dp"
-        android:src="@drawable/ic_arrow_back"
         android:layout_alignParentStart="true"
         android:layout_marginTop="16dp"
-        android:contentDescription="@string/back" />
+        android:contentDescription="@string/back"
+        android:src="@drawable/ic_arrow_back" />
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="top|center_horizontal"
         android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="top|center_horizontal">
+        android:padding="24dp">
 
         <TextView
             android:id="@+id/txtRestaurantName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:layout_marginBottom="50dp"
+            android:gravity="center"
             android:text="@string/restaurant_name"
             android:textSize="28sp"
-            android:textStyle="bold"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtCreateAccountTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
             android:gravity="center"
-            android:layout_marginTop="200dp"
-            android:layout_marginBottom="50dp" />
-
-    <TextView
-        android:id="@+id/txtCreateAccountTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/create_account"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="30dp" />
+            android:text="@string/create_account"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="@string/enter_name"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp" />
-    <EditText
-        android:id="@+id/editTextName"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:autofillHints="name"
-        android:hint="@string/placeholder_name"
-        android:background="@drawable/edittext_background"
-        android:inputType="textPersonName"
-        android:padding="12dp"
-        android:layout_marginBottom="30dp"/>
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="30dp"
+            android:autofillHints="name"
+            android:background="@drawable/edittext_background"
+            android:hint="@string/placeholder_name"
+            android:inputType="textPersonName"
+            android:padding="12dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="@string/enter_email"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp" />
+            android:textSize="16sp" />
 
-    <EditText
-        android:id="@+id/editTextEmail"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:autofillHints="emailAddress"
-        android:hint="@string/placeholder_email"
-        android:inputType="textEmailAddress"
-        android:background="@drawable/edittext_background"
-        android:padding="12dp"
-        android:layout_marginBottom="30dp" />
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="30dp"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/edittext_background"
+            android:hint="@string/placeholder_email"
+            android:inputType="textEmailAddress"
+            android:padding="12dp" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="@string/enter_password"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp" />
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:autofillHints="password"
-        android:hint="@string/placeholder_password"
-        android:inputType="textPassword"
-        android:background="@drawable/edittext_background"
-        android:padding="12dp"
-        android:layout_marginBottom="40dp"/>
+            android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/btnCreateAccount"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:text="@string/create_account"
-        android:textColor="@android:color/white"
-        android:background="@drawable/button_ripple"
-        android:layout_marginBottom="40dp" />
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="40dp"
+            android:autofillHints="password"
+            android:background="@drawable/edittext_background"
+            android:hint="@string/placeholder_password"
+            android:inputType="textPassword"
+            android:padding="12dp" />
 
-    <TextView
-        android:id="@+id/txtLoginRedirect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/already_user"
-        android:textSize="14sp"
-        android:textColor="@android:color/darker_gray"
-        android:layout_marginTop="16dp" />
+        <Button
+            android:id="@+id/btnCreateAccount"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/button_ripple"
+            android:text="@string/create_account"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/txtLoginRedirect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/already_user"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
     </LinearLayout>
 </RelativeLayout>

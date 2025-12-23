@@ -8,39 +8,39 @@
         android:id="@+id/btnBack"
         android:layout_width="28dp"
         android:layout_height="28dp"
-        android:src="@drawable/ic_arrow_back"
-        android:contentDescription="@string/btn_back"
         android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp" />
+        android:contentDescription="@string/btn_back"
+        android:src="@drawable/ic_arrow_back" />
 
     <LinearLayout
         android:id="@+id/contentLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_marginTop="60dp"
         android:gravity="center_horizontal"
-        android:layout_marginTop="60dp">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/txtRestaurantName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/restaurant_name"
-            android:textStyle="bold"
-            android:textSize="24sp"
+            android:layout_marginTop="70dp"
             android:gravity="center"
-            android:layout_marginTop="70dp"/>
+            android:text="@string/restaurant_name"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtFoodName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/food_name"
-            android:textStyle="bold"
-            android:textSize="22sp"
+            android:layout_marginTop="16dp"
             android:gravity="center"
-            android:layout_marginTop="16dp" />
+            android:text="@string/food_name"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/imgFood"
@@ -49,27 +49,27 @@
             android:layout_marginTop="24dp"
             android:background="@drawable/rounded_corners"
             android:clipToOutline="true"
-            android:scaleType="centerCrop"
-            android:contentDescription="@string/food_image" />
+            android:contentDescription="@string/food_image"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/txtFoodPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:text="@string/fiver"
-            android:textStyle="bold"
             android:textSize="18sp"
-            android:layout_marginTop="32dp" />
+            android:textStyle="bold" />
 
         <!-- Allergy Info -->
         <TextView
             android:id="@+id/txtAllergyInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/allergy"
-            android:textSize="18sp"
+            android:layout_marginTop="16dp"
             android:gravity="center"
-            android:layout_marginTop="16dp" />
+            android:text="@string/allergy"
+            android:textSize="18sp" />
 
     </LinearLayout>
 </RelativeLayout>

@@ -8,32 +8,32 @@
         android:id="@+id/btnBack"
         android:layout_width="28dp"
         android:layout_height="28dp"
-        android:src="@drawable/ic_arrow_back"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:layout_marginStart="16dp"
-        android:contentDescription="@string/back" />
+        android:contentDescription="@string/back"
+        android:src="@drawable/ic_arrow_back" />
 
     <TextView
         android:id="@+id/txtRestaurantName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
         android:text="@string/restaurant_name"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/txtNotificationsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/txtRestaurantName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:text="@string/notifications"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/txtRestaurantName"
-        android:layout_marginTop="20dp" />
+        android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/layoutNotifications"
@@ -42,18 +42,18 @@
         android:layout_below="@id/txtNotificationsTitle"
         android:layout_marginTop="24dp"
         android:gravity="center_horizontal"
-        android:orientation="vertical"/>
+        android:orientation="vertical" />
 
 
     <TextView
         android:id="@+id/txtNoNotifications"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
         android:text="@string/no_notifications"
         android:textSize="16sp"
-        android:visibility="gone"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp" />
+        android:visibility="gone" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerNotifications"

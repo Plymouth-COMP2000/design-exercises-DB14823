@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:background="@drawable/notification_bubble"
+    android:orientation="vertical"
     android:padding="16dp">
 
     <TextView
@@ -11,16 +11,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/placeholder"
-        android:textSize="16sp"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/txtNotificationTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/timestamp"
-        android:textSize="12sp"
         android:layout_marginTop="4dp"
-        android:textColor="@android:color/darker_gray" />
+        android:text="@string/timestamp"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="12sp" />
 
 </LinearLayout>

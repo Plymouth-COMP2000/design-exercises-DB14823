@@ -32,7 +32,7 @@ public class CustomerCreateAccountActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_account_customer); // <-- make sure file name matches exactly
+        setContentView(R.layout.activity_create_account_customer);
 
         btnBack = findViewById(R.id.btnBack);
         editTextName = findViewById(R.id.editTextName);
@@ -78,7 +78,8 @@ public class CustomerCreateAccountActivity extends AppCompatActivity {
 
                 try {
                     api.createStudent();
-                } catch (Exception ignored) { }
+                } catch (Exception ignored) {
+                }
 
                 User existing = api.readUser(newUser.username);
                 if (existing != null) {

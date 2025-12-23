@@ -13,31 +13,31 @@
             android:id="@+id/btnBack"
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:src="@drawable/ic_arrow_back"
-            android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
-            android:contentDescription="@string/back" />
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_arrow_back" />
 
         <TextView
             android:id="@+id/txtRestaurantName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/restaurant_name"
-            android:textStyle="bold"
-            android:textSize="28sp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp" />
+            android:layout_marginTop="50dp"
+            android:text="@string/restaurant_name"
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtMenuTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu"
-            android:textStyle="bold"
-            android:textSize="20sp"
             android:layout_below="@id/txtRestaurantName"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp"
+            android:text="@string/menu"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <GridLayout
             android:id="@+id/menuGrid"
@@ -46,9 +46,8 @@
             android:layout_below="@id/txtMenuTitle"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            android:columnCount="2"
             android:alignmentMode="alignMargins"
-            >
+            android:columnCount="2">
 
         </GridLayout>
 
