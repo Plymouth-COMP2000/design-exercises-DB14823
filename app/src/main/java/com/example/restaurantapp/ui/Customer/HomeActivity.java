@@ -2,6 +2,7 @@ package com.example.restaurantapp.ui.Customer;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,9 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        View root = findViewById(android.R.id.content);
+        root.setAlpha(0f);
+        root.animate().alpha(1f).setDuration(400).start();
 
         Button btnCustomer = findViewById(R.id.btnCustomerLogin);
         Button btnStaff = findViewById(R.id.btnStaffLogin);

@@ -33,7 +33,8 @@ public class CustomerDashboardActivity extends AppCompatActivity {
         if (!username.isEmpty()) {
             String displayName = getIntent().getStringExtra("DISPLAY_NAME");
             if (displayName != null) {
-                txtWelcome.setText("Welcome, " + displayName);
+                String firstName = displayName.split(" ")[0];
+                txtWelcome.setText("Welcome back, " + firstName);
             }
 
         }
@@ -47,11 +48,16 @@ public class CustomerDashboardActivity extends AppCompatActivity {
         btnViewBookings.setOnClickListener(v -> {
             Intent i = new Intent(this, CustomerBookingsActivity.class);
             i.putExtra("USERNAME", username);
+
+            String displayName = getIntent().getStringExtra("DISPLAY_NAME");
+            i.putExtra("DISPLAY_NAME", displayName);
+
             startActivity(i);
         });
 
+
         imgNotification.setOnClickListener(v -> {
-            Intent i = new Intent(this, NotificationsActivity.class);
+            Intent i = new Intent(this, CustomerNotificationsActivity.class);
             i.putExtra("USERNAME", username);
             startActivity(i);
         });

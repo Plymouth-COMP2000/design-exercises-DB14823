@@ -91,7 +91,7 @@ public class CustomerLoginActivity extends AppCompatActivity {
 
                     Intent i = new Intent(this, CustomerDashboardActivity.class);
                     i.putExtra("USERNAME", user.username);
-                    i.putExtra("DISPLAY_NAME", user.firstname);
+                    i.putExtra("DISPLAY_NAME", user.firstname + " " + user.lastname);
                     startActivity(i);
                     finish();
                 });

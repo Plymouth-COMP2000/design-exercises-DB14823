@@ -19,6 +19,7 @@ import java.util.List;
 public class CustomerBookingsActivity extends AppCompatActivity {
 
     private String username;
+    private String displayName;
 
     private RecyclerView rvBookings;
     private BookingsAdapter adapter;
@@ -38,7 +39,12 @@ public class CustomerBookingsActivity extends AppCompatActivity {
         txtMakeBooking.setOnClickListener(v -> {
             Intent i = new Intent(this, AddBookingActivity.class);
             i.putExtra(AddBookingActivity.EXTRA_USERNAME, username);
+
+            String displayName = getIntent().getStringExtra("DISPLAY_NAME");
+            i.putExtra(AddBookingActivity.EXTRA_DISPLAY_NAME, displayName);
+
             startActivity(i);
+
         });
 
         rvBookings = findViewById(R.id.rvBookings);
@@ -49,6 +55,16 @@ public class CustomerBookingsActivity extends AppCompatActivity {
             if (!ok) {
                 Toast.makeText(this, "Delete failed", Toast.LENGTH_SHORT).show();
             }
+            String who = (booking.displayName != null && !booking.displayName.trim().isEmpty())
+                    ? booking.displayName
+                    : booking.username;
+
+            db.addNotification(
+                    "staff",
+                    "BOOKING_CANCELLED_BY_CUSTOMER",
+                    who + " cancelled a booking."
+            );
+
             loadBookings();
         });
 

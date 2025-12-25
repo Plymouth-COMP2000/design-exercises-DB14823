@@ -2,31 +2,29 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="15dp"
     android:background="@drawable/table_design"
     android:orientation="horizontal"
-    android:padding="15dp"
-    android:layout_margin="5dp">
-
+    android:padding="10dp">
 
     <TextView
-        android:id="@+id/txtNotificationMessage"
-        android:layout_width="283dp"
-        android:layout_height="wrap_content"
-        android:text="@string/placeholder"
-        android:textColor="@android:color/black"
-        android:textSize="16sp" />
-
-
-
-    <TextView
-        android:id="@+id/txtNotificationTime"
+        android:id="@+id/txtBookingUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtNotificationMessage"
-        android:layout_marginTop="4dp"
-        android:text="@string/timestamp"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="12sp" />
+        android:layout_marginBottom="8dp"
+        android:text="Booked by: Test User"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/txtBookingTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtBookingUser"
+        android:layout_weight="1"
+        android:text="@string/time"
+        android:textSize="16sp" />
 
     <ImageView
         android:id="@+id/btnDelete"
@@ -34,7 +32,5 @@
         android:layout_height="24dp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:contentDescription="@string/delete"
         android:src="@drawable/ic_delete" />
-
 </RelativeLayout>

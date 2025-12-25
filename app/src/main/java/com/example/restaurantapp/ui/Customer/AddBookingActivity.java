@@ -20,6 +20,8 @@ import java.util.Locale;
 public class AddBookingActivity extends AppCompatActivity {
 
     public static final String EXTRA_USERNAME = "USERNAME";
+    public static final String EXTRA_DISPLAY_NAME = "DISPLAY_NAME";
+
 
     private TextView txtSelectDate;
     private TextView txtSelectTime;
@@ -91,8 +93,19 @@ public class AddBookingActivity extends AppCompatActivity {
             return;
         }
 
+        String displayName = getIntent().getStringExtra(EXTRA_DISPLAY_NAME);
+        if (displayName == null) displayName = "";
+
         DatabaseHelper db = new DatabaseHelper(this);
-        long newId = db.createTableBooking(username, selectedDate, selectedTime);
+        long newId = db.createTableBooking(username, displayName, selectedDate, selectedTime);
+
+        String prettyDate = formatDateDdMmYyyy(selectedDate);
+        db.addNotification(
+                "staff",
+                "BOOKING_CREATED",
+                (displayName.isEmpty() ? username : displayName) +
+                        " booked a table at " + selectedTime + " on " + prettyDate
+        );
 
         if (newId == -1) {
             Toast.makeText(this, "Booking failed", Toast.LENGTH_SHORT).show();
@@ -109,6 +122,24 @@ public class AddBookingActivity extends AppCompatActivity {
         SimpleDateFormat fmt = new SimpleDateFormat("EEE d MMM yyyy", Locale.UK);
         return fmt.format(cal.getTime());
     }
+
+    private String formatDateDdMmYyyy(String yyyyMmDd) {
+        try {
+            java.text.SimpleDateFormat inFmt = new java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.UK);
+            java.text.SimpleDateFormat outFmt = new java.text.SimpleDateFormat("dd/MM/yyyy", java.util.Locale.UK);
+            java.util.Date d = inFmt.parse(yyyyMmDd);
+            return outFmt.format(d);
+        } catch (Exception e) {
+            return yyyyMmDd;
+        }
+    }
+
+    private String displayNameOrEmail(String displayName, String email) {
+        if (displayName == null) displayName = "";
+        displayName = displayName.trim();
+        return displayName.isEmpty() ? email : displayName;
+    }
+
 
     private void markSelected(TextView tv) {
         tv.setAlpha(1f);

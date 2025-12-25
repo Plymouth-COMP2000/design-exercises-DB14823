@@ -31,19 +31,19 @@ public class StaffDashboardActivity extends AppCompatActivity {
 
 
         btnManageMenu.setOnClickListener(v -> {
-            Intent i = new Intent(this, HomeActivity.class);
+            Intent i = new Intent(this, StaffManageMenuActivity.class);
             i.putExtra("USERNAME", staffNumber);
             startActivity(i);
         });
 
         btnManageBookings.setOnClickListener(v -> {
-            Intent i = new Intent(this, HomeActivity.class);
+            Intent i = new Intent(this, StaffManageBookingsActivity.class);
             i.putExtra("USERNAME", staffNumber);
             startActivity(i);
         });
 
         imgNotification.setOnClickListener(v -> {
-            Intent i = new Intent(this, HomeActivity.class);
+            Intent i = new Intent(this, StaffNotificationsActivity.class);
             i.putExtra("USERNAME", staffNumber);
             startActivity(i);
         });

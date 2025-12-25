@@ -9,21 +9,21 @@
         android:layout_width="38dp"
         android:layout_height="38dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
         android:contentDescription="@string/notifications"
         android:src="@drawable/ic_notifications" />
 
 
     <TextView
-        android:id="@+id/txtRestaurantName"
+        android:id="@+id/txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="70dp"
+        android:gravity="top|center_horizontal"
         android:text="@string/restaurant_name"
-        android:textSize="28sp"
+        android:textSize="70sp"
         android:textStyle="bold" />
 
 
@@ -31,10 +31,8 @@
         android:id="@+id/txtWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txtRestaurantName"
+        android:layout_below="@id/txtTitle"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
         android:gravity="center"
         android:text="@string/staff_welcome"
         android:textSize="20sp" />
@@ -42,23 +40,23 @@
 
     <Button
         android:id="@+id/btnManageMenu"
-        android:layout_width="250dp"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
         android:layout_below="@id/txtWelcome"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:background="@drawable/button_ripple"
+        android:background="@drawable/button_primary"
         android:text="@string/manage_menu"
         android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/btnManageBookings"
-        android:layout_width="250dp"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
         android:layout_below="@id/btnManageMenu"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/button_ripple"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_primary"
         android:text="@string/manage_bookings"
         android:textColor="@android:color/white" />
 
@@ -70,6 +68,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
         android:text="@string/logout"
-        android:textSize="16sp" />
+        android:textSize="20sp" />
 
 </RelativeLayout>

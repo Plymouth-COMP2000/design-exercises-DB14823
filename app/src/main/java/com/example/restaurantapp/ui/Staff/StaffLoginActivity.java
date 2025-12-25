@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,8 @@ public class StaffLoginActivity extends AppCompatActivity {
     private EditText edtStaffNumber;
     private EditText edtStaffPassword;
     private Button btnLogin;
+    private ImageView btnBack;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,9 @@ public class StaffLoginActivity extends AppCompatActivity {
         edtStaffNumber = findViewById(R.id.edtStaffNumber);
         edtStaffPassword = findViewById(R.id.edtStaffPassword);
         btnLogin = findViewById(R.id.btnStaffContinue);
+        btnBack = findViewById(R.id.btnBack);
+
+        btnBack.setOnClickListener(v -> finish());
 
         btnLogin.setOnClickListener(v -> {
             String staffNumber = edtStaffNumber.getText().toString().trim();

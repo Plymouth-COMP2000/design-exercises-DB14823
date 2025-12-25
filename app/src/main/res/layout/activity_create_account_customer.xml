@@ -25,11 +25,11 @@
             android:id="@+id/txtRestaurantName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="50dp"
             android:layout_marginBottom="50dp"
             android:gravity="center"
             android:text="@string/restaurant_name"
-            android:textSize="28sp"
+            android:textSize="50sp"
             android:textStyle="bold" />
 
         <TextView
@@ -46,17 +46,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="@string/enter_name"
+            android:text="Enter First Name"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/editTextName"
+            android:id="@+id/editTextFName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="30dp"
             android:autofillHints="name"
             android:background="@drawable/edittext_background"
-            android:hint="@string/placeholder_name"
+            android:hint="John"
+            android:inputType="textPersonName"
+            android:padding="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Enter Last Name"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editTextLName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="30dp"
+            android:autofillHints="name"
+            android:background="@drawable/edittext_background"
+            android:hint="Smith"
             android:inputType="textPersonName"
             android:padding="12dp" />
 
@@ -79,6 +97,7 @@
             android:padding="12dp" />
 
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -90,7 +109,7 @@
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="20dp"
             android:autofillHints="password"
             android:background="@drawable/edittext_background"
             android:hint="@string/placeholder_password"
@@ -99,10 +118,10 @@
 
         <Button
             android:id="@+id/btnCreateAccount"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="40dp"
-            android:background="@drawable/button_ripple"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_primary"
             android:text="@string/create_account"
             android:textColor="@android:color/white" />
 
@@ -110,7 +129,6 @@
             android:id="@+id/txtLoginRedirect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:text="@string/already_user"
             android:textColor="@android:color/darker_gray"
             android:textSize="14sp" />

@@ -23,7 +23,8 @@ public class CustomerCreateAccountActivity extends AppCompatActivity {
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
 
     private ImageView btnBack;
-    private EditText editTextName;
+    private EditText editTextFName;
+    private EditText editTextLName;
     private EditText editTextEmail;
     private EditText editTextPassword;
     private Button btnCreateAccount;
@@ -35,7 +36,8 @@ public class CustomerCreateAccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_account_customer);
 
         btnBack = findViewById(R.id.btnBack);
-        editTextName = findViewById(R.id.editTextName);
+        editTextFName = findViewById(R.id.editTextFName);
+        editTextLName = findViewById(R.id.editTextLName);
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         btnCreateAccount = findViewById(R.id.btnCreateAccount);
@@ -49,11 +51,12 @@ public class CustomerCreateAccountActivity extends AppCompatActivity {
         });
 
         btnCreateAccount.setOnClickListener(v -> {
-            String name = text(editTextName);
+            String Fname = text(editTextFName);
+            String Lname = text(editTextLName);
             String email = text(editTextEmail);
             String password = text(editTextPassword);
 
-            if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+            if (TextUtils.isEmpty(Fname) || TextUtils.isEmpty(Lname) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -61,8 +64,8 @@ public class CustomerCreateAccountActivity extends AppCompatActivity {
             User newUser = new User();
             newUser.username = email;
             newUser.password = password;
-            newUser.firstname = name;
-            newUser.lastname = "";
+            newUser.firstname = Fname;
+            newUser.lastname = Lname;
             newUser.email = email;
             newUser.contact = "";
             newUser.usertype = "customer";

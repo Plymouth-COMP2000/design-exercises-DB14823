@@ -1,17 +1,26 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.RestaurantApp" parent="Theme.Material3.Light.NoActionBar">
-        <!-- Force a clean neutral style -->
-        <item name="colorPrimary">#000000</item>
-        <item name="colorOnPrimary">#FFFFFF</item>
-        <item name="colorSecondary">#000000</item>
-        <item name="android:buttonStyle">@style/CustomButtonStyle</item>
-        <item name="android:textColor">#000000</item>
+
+    <style name="Theme.RestaurantApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primaryDark</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorOnSecondary">@color/jet</item>
+
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:statusBarColor">@color/primaryDark</item>
+
+        <item name="android:textColorPrimary">@color/textPrimary</item>
+        <item name="android:textColorSecondary">@color/textSecondary</item>
+        <item name="colorOnBackground">@color/textPrimary</item>
+        <item name="colorOnSurface">@color/textPrimary</item>
+
+        <item name="android:textViewStyle">@style/CozyTextView</item>
     </style>
 
-    <style name="CustomButtonStyle" parent="Widget.Material3.Button">
-        <item name="android:background">@drawable/button_black_rounded</item>
-        <item name="android:backgroundTint">@null</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="cornerRadius">12dp</item>
+    <style name="CozyTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/textPrimary</item>
     </style>
+
 </resources>

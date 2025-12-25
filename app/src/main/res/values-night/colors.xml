@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="olive">#3B5624</color>
+    <color name="palm">#928C63</color>
+    <color name="blossom">#FFB7C3</color>
+    <color name="jet">#2A2D34</color>
+    <color name="charcoal">#1F271B</color>
+
+    <color name="primary">@color/palm</color>
+    <color name="primaryDark">@color/charcoal</color>
+    <color name="accent">@color/blossom</color>
+
+    <color name="background">@color/charcoal</color>
+    <color name="surface">@color/jet</color>
+
+    <color name="textPrimary">#F3F0E6</color>
+    <color name="textSecondary">#CFC8B4</color>
+
+    <color name="divider">#3A3F34</color>
+
+    <color name="btnPressed">#7E7855</color>
+    <color name="rippleColor">#22FFFFFF</color>
+
+    <color name="notifBubble">#333842</color>
+
+</resources>

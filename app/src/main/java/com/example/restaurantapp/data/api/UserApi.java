@@ -15,7 +15,7 @@ public class UserApi {
 
     public void createStudent() throws Exception {
         String urlStr = ApiConfig.BASE_URL + "/create_student/" + ApiConfig.STUDENT_ID;
-        postJson(urlStr, null); // no body required
+        postJson(urlStr, null);
     }
 
     public void createUser(User user) throws Exception {
@@ -99,7 +99,7 @@ public class UserApi {
         }
 
         BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-        while (br.readLine() != null) { /* ignore */ }
+        while (br.readLine() != null) {}
         br.close();
     }
 }

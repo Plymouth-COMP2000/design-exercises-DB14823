@@ -26,13 +26,19 @@
         <activity android:name=".ui.Customer.CustomerLoginActivity" />
         <activity android:name=".ui.Customer.CustomerCreateAccountActivity" />
         <activity android:name=".ui.Customer.CustomerDashboardActivity" />
-        <activity android:name=".ui.Customer.NotificationsActivity" />
+        <activity android:name=".ui.Customer.CustomerNotificationsActivity" />
         <activity android:name=".ui.Customer.CustomerBookingsActivity" />
         <activity android:name=".ui.Customer.MenuActivity" />
         <activity android:name=".ui.Customer.AddBookingActivity" />
         <activity android:name=".ui.Customer.MenuItemDetailsActivity" />
         <activity android:name=".ui.Staff.StaffLoginActivity" />
         <activity android:name=".ui.Staff.StaffDashboardActivity" />
+        <activity android:name=".ui.Staff.StaffManageMenuActivity"/>
+        <activity android:name=".ui.Staff.AddMenuItemActivity"/>
+        <activity android:name=".ui.Staff.EditMenuItemActivity"/>
+        <activity android:name=".ui.Staff.StaffManageBookingsActivity"/>
+        <activity android:name=".ui.Staff.StaffNotificationsActivity" />
+
 
     </application>
 
