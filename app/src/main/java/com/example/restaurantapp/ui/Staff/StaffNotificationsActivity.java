@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.restaurantapp.R;
 import com.example.restaurantapp.data.db.DatabaseHelper;
-import com.example.restaurantapp.model.AppNotification;
+import com.example.restaurantapp.model.Notifications;
 import com.example.restaurantapp.ui.NotificationsAdapter;
 
 import java.util.List;
@@ -57,7 +57,7 @@ public class StaffNotificationsActivity extends AppCompatActivity {
 
     private void loadNotifications() {
         DatabaseHelper db = new DatabaseHelper(this);
-        List<AppNotification> list = db.getNotificationsForStaff();
+        List<Notifications> list = db.getNotificationsForStaff();
 
         adapter.setData(list);
 

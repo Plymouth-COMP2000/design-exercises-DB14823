@@ -61,7 +61,6 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <!-- Allergy Info -->
         <TextView
             android:id="@+id/txtAllergyInfo"
             android:layout_width="wrap_content"

@@ -1,89 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp">
+    android:fillViewport="true">
 
-    <ImageView
-        android:id="@+id/btnBack"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:src="@drawable/ic_arrow_back"
-        android:contentDescription="@string/back"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp" />
-
-    <LinearLayout
-        android:id="@+id/content"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnBack"
-        android:layout_marginTop="40dp"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:padding="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/restaurant_name"
-            android:textStyle="bold"
-            android:textSize="26sp"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginTop="56dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add Menu Item"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_marginBottom="28dp" />
+            <TextView
+                android:id="@+id/txtRestaurantName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/restaurant_name"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/edtItemName"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="Item name"
-            android:background="@drawable/edittext_background"
-            android:padding="12dp"
-            android:layout_marginBottom="16dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="14dp"
+                android:text="Add Menu Item"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/edtItemPrice"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="Price (e.g. 5.00)"
-            android:inputType="numberDecimal"
-            android:background="@drawable/edittext_background"
-            android:padding="12dp"
-            android:layout_marginBottom="16dp" />
+            <ImageView
+                android:id="@+id/imgFood"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edittext_background"
+                android:clipToOutline="true"
+                android:contentDescription="@string/food_image"
+                android:maxWidth="240dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_image_placeholder" />
 
-        <EditText
-            android:id="@+id/edtAllergyInfo"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="Allergy info (optional)"
-            android:background="@drawable/edittext_background"
-            android:padding="12dp"
-            android:layout_marginBottom="16dp" />
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/spnItemImage"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edittext_background"
+                android:drawableEnd="@drawable/ic_dropdown_arrow_down"
+                android:drawablePadding="12dp"
+                android:fontFamily="sans-serif"
+                android:inputType="none"
+                android:maxWidth="320dp"
+                android:padding="12dp"
+                android:paddingEnd="10dp"
+                android:textSize="16sp" />
 
-        <Spinner
-            android:id="@+id/spnItemImage"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/edittext_background"
-            android:padding="12dp"
-            android:layout_marginBottom="24dp" />
 
-        <Button
-            android:id="@+id/btnSaveItem"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:text="Save"
-            android:textColor="@android:color/white"
-            android:background="@drawable/button_ripple" />
+            <EditText
+                android:id="@+id/edtItemName"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Item name"
+                android:maxWidth="320dp"
+                android:padding="12dp" />
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/edtItemPrice"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Price (e.g. 5.00)"
+                android:inputType="numberDecimal"
+                android:maxWidth="320dp"
+                android:padding="12dp" />
 
-</RelativeLayout>
+            <EditText
+                android:id="@+id/edtAllergyInfo"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Allergy info (optional)"
+                android:maxWidth="320dp"
+                android:padding="12dp" />
+
+            <Button
+                android:id="@+id/btnSaveItem"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="22dp"
+                android:background="@drawable/button_ripple"
+                android:maxWidth="240dp"
+                android:text="Save"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

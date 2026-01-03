@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.restaurantapp.R;
 import com.example.restaurantapp.data.db.DatabaseHelper;
-import com.example.restaurantapp.model.AppNotification;
+import com.example.restaurantapp.model.Notifications;
 import com.example.restaurantapp.ui.NotificationsAdapter;
 
 import java.util.ArrayList;
@@ -75,15 +75,15 @@ public class CustomerNotificationsActivity extends AppCompatActivity {
 
     private void loadNotifications() {
         DatabaseHelper db = new DatabaseHelper(this);
-        List<AppNotification> raw = db.getNotificationsForCustomer(username);
+        List<Notifications> raw = db.getNotificationsForCustomer(username);
 
         SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
         boolean allowMenuEdited = prefs.getBoolean(KEY_MENU_EDITED, true);
         boolean allowCancelled = prefs.getBoolean(KEY_CANCELLED_BY_STAFF, true);
 
-        List<AppNotification> filtered = new ArrayList<>();
+        List<Notifications> filtered = new ArrayList<>();
         if (raw != null) {
-            for (AppNotification n : raw) {
+            for (Notifications n : raw) {
                 if ("MENU_EDITED".equals(n.category) && !allowMenuEdited) continue;
                 if ("BOOKING_CANCELLED_BY_STAFF".equals(n.category) && !allowCancelled) continue;
                 filtered.add(n);

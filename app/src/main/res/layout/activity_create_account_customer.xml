@@ -53,7 +53,7 @@
             android:id="@+id/editTextFName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="20dp"
             android:autofillHints="name"
             android:background="@drawable/edittext_background"
             android:hint="John"
@@ -71,7 +71,7 @@
             android:id="@+id/editTextLName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="20dp"
             android:autofillHints="name"
             android:background="@drawable/edittext_background"
             android:hint="Smith"
@@ -89,7 +89,7 @@
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="20dp"
             android:autofillHints="emailAddress"
             android:background="@drawable/edittext_background"
             android:hint="@string/placeholder_email"
@@ -130,7 +130,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/already_user"
-            android:textColor="@android:color/darker_gray"
             android:textSize="14sp" />
     </LinearLayout>
 </RelativeLayout>

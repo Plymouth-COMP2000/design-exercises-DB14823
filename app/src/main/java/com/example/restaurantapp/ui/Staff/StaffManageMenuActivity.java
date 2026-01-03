@@ -71,19 +71,16 @@ public class StaffManageMenuActivity extends AppCompatActivity {
         card.setPadding(dp(6), dp(6), dp(6), dp(6));
 
         GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-        int outer = dp(16);
-        int inner = dp(12);
-        params.setMargins(
-                column == 0 ? outer : inner,
-                dp(16),
-                column == 0 ? inner : outer,
-                dp(16)
-        );
+        params.width = 0;
+        params.columnSpec = GridLayout.spec(column, 1f);
+        params.setMargins(dp(8), dp(16), dp(8), dp(16));
         card.setLayoutParams(params);
 
         ImageView img = new ImageView(this);
-        LinearLayout.LayoutParams imgParams =
-                new LinearLayout.LayoutParams(dp(150), dp(150));
+        LinearLayout.LayoutParams imgParams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                dp(150)
+        );
         img.setLayoutParams(imgParams);
         img.setScaleType(ImageView.ScaleType.CENTER_CROP);
         img.setBackgroundResource(R.drawable.rounded_corners);
@@ -112,6 +109,7 @@ public class StaffManageMenuActivity extends AppCompatActivity {
 
         return card;
     }
+
 
     private int dp(int dp) {
         return (int) (dp * getResources().getDisplayMetrics().density);

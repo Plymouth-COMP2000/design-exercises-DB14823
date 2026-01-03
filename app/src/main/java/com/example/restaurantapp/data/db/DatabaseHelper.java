@@ -12,6 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.restaurantapp.R;
 import com.example.restaurantapp.model.Booking;
 import com.example.restaurantapp.model.MenuItem;
+import com.example.restaurantapp.model.Notifications;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -281,16 +282,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.insert(TABLE_NOTIFICATIONS, null, v);
     }
 
-    public List<com.example.restaurantapp.model.AppNotification> getNotificationsForStaff() {
+    public List<Notifications> getNotificationsForStaff() {
         return getNotificationsForRecipients(new String[]{"staff"});
     }
 
-    public List<com.example.restaurantapp.model.AppNotification> getNotificationsForCustomer(String usernameEmail) {
+    public List<Notifications> getNotificationsForCustomer(String usernameEmail) {
         return getNotificationsForRecipients(new String[]{"customer:" + usernameEmail, "customer_all"});
     }
 
-    private List<com.example.restaurantapp.model.AppNotification> getNotificationsForRecipients(String[] recipients) {
-        List<com.example.restaurantapp.model.AppNotification> out = new ArrayList<>();
+    private List<Notifications> getNotificationsForRecipients(String[] recipients) {
+        List<Notifications> out = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
 
         StringBuilder where = new StringBuilder();
@@ -308,7 +309,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         if (c.moveToFirst()) {
             do {
-                out.add(new com.example.restaurantapp.model.AppNotification(
+                out.add(new Notifications(
                         c.getInt(c.getColumnIndexOrThrow(COL_NOTIF_ID)),
                         c.getString(c.getColumnIndexOrThrow(COL_NOTIF_RECIPIENT)),
                         c.getString(c.getColumnIndexOrThrow(COL_NOTIF_CATEGORY)),

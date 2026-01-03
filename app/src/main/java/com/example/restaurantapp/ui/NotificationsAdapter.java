@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.restaurantapp.R;
-import com.example.restaurantapp.model.AppNotification;
+import com.example.restaurantapp.model.Notifications;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,17 +19,17 @@ import java.util.List;
 public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdapter.VH> {
 
     public interface OnDeleteClick {
-        void onDelete(AppNotification n);
+        void onDelete(Notifications n);
     }
 
-    private final List<AppNotification> data = new ArrayList<>();
+    private final List<Notifications> data = new ArrayList<>();
     private final OnDeleteClick onDeleteClick;
 
     public NotificationsAdapter(OnDeleteClick onDeleteClick) {
         this.onDeleteClick = onDeleteClick;
     }
 
-    public void setData(List<AppNotification> list) {
+    public void setData(List<Notifications> list) {
         data.clear();
         if (list != null) data.addAll(list);
         notifyDataSetChanged();
@@ -45,7 +45,7 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
 
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
-        AppNotification n = data.get(position);
+        Notifications n = data.get(position);
 
         holder.txtMessage.setText(n.message);
 
