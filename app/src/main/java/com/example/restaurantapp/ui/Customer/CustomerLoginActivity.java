@@ -74,7 +74,6 @@ public class CustomerLoginActivity extends AppCompatActivity {
                         Toast.makeText(this, "User not found", Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    System.out.println("DEBUG usertype = " + user.usertype);
 
                     if (!"customer".equalsIgnoreCase(user.usertype)) {
                         Toast.makeText(this, "That account is not a customer account", Toast.LENGTH_SHORT).show();
@@ -89,11 +88,18 @@ public class CustomerLoginActivity extends AppCompatActivity {
 
                     Toast.makeText(this, "Logged in", Toast.LENGTH_SHORT).show();
 
+                    com.example.restaurantapp.data.session.SessionManager.login(
+                            this,
+                            com.example.restaurantapp.data.session.SessionManager.Role.CUSTOMER,
+                            username
+                    );
+
                     Intent i = new Intent(this, CustomerDashboardActivity.class);
                     i.putExtra("USERNAME", user.username);
                     i.putExtra("DISPLAY_NAME", user.firstname + " " + user.lastname);
                     startActivity(i);
                     finish();
+
                 });
 
             } catch (Exception e) {

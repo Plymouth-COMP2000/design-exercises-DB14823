@@ -34,6 +34,17 @@ public class AddBookingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (!com.example.restaurantapp.data.session.SessionManager.isLoggedIn(this)
+                || com.example.restaurantapp.data.session.SessionManager.getRole(this)
+                != com.example.restaurantapp.data.session.SessionManager.Role.CUSTOMER) {
+            startActivity(new android.content.Intent(
+                    this,
+                    com.example.restaurantapp.ui.Customer.CustomerLoginActivity.class
+            ));
+            finish();
+            return;
+        }
+
         setContentView(R.layout.activity_add_booking);
 
         ImageView btnBack = findViewById(R.id.btnBack);

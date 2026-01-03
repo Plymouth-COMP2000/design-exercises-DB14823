@@ -22,6 +22,17 @@ public class StaffManageBookingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (!com.example.restaurantapp.data.session.SessionManager.isLoggedIn(this)
+                || com.example.restaurantapp.data.session.SessionManager.getRole(this)
+                != com.example.restaurantapp.data.session.SessionManager.Role.STAFF) {
+            startActivity(new android.content.Intent(
+                    this,
+                    com.example.restaurantapp.ui.Staff.StaffLoginActivity.class
+            ));
+            finish();
+            return;
+        }
+
         setContentView(R.layout.activity_staff_manage_bookings);
 
         ImageView btnBack = findViewById(R.id.btnBack);

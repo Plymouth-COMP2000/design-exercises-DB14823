@@ -88,10 +88,17 @@ public class StaffLoginActivity extends AppCompatActivity {
 
                     Toast.makeText(this, "Staff login successful", Toast.LENGTH_SHORT).show();
 
+                    com.example.restaurantapp.data.session.SessionManager.login(
+                            this,
+                            com.example.restaurantapp.data.session.SessionManager.Role.STAFF,
+                            staffNumber
+                    );
+
                     Intent i = new Intent(this, StaffDashboardActivity.class);
                     i.putExtra("USERNAME", user.username);
                     startActivity(i);
                     finish();
+
                 });
 
             } catch (Exception e) {
