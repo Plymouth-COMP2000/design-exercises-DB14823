@@ -20,11 +20,9 @@ import java.util.List;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "restaurant.db";
-
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 7;
 
     public static final String TABLE_MENU = "menu";
-
     public static final String COL_ID = "id";
     public static final String COL_NAME = "name";
     public static final String COL_PRICE = "price";
@@ -32,13 +30,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_ALLERGY = "allergy_info";
 
     public static final String TABLE_BOOKINGS = "bookings";
-
     public static final String COL_BOOKING_ID = "id";
     public static final String COL_BOOKING_USERNAME = "username";
     public static final String COL_BOOKING_DISPLAY_NAME = "display_name";
     public static final String COL_BOOKING_DATE = "date";
     public static final String COL_BOOKING_TIME = "time";
     public static final String COL_BOOKING_CREATED_AT = "created_at";
+    private static final String COL_BOOKING_PARTY_SIZE = "party_size";
+
     public static final String TABLE_NOTIFICATIONS = "notifications";
     public static final String COL_NOTIF_ID = "id";
     public static final String COL_NOTIF_RECIPIENT = "recipient";
@@ -73,6 +72,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     COL_BOOKING_DISPLAY_NAME + " TEXT, " +
                     COL_BOOKING_DATE + " TEXT NOT NULL, " +
                     COL_BOOKING_TIME + " TEXT NOT NULL, " +
+                    COL_BOOKING_PARTY_SIZE + " INTEGER NOT NULL DEFAULT 2, " +
                     COL_BOOKING_CREATED_AT + " INTEGER NOT NULL" +
                     ");";
 
@@ -115,8 +115,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         "('Chips', 1.00, " + R.drawable.chips + ", 'Vegan');"
         );
     }
-
-
 
     public List<MenuItem> getAllMenuItems() {
         List<MenuItem> items = new ArrayList<>();
@@ -197,8 +195,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return rows > 0;
     }
 
-
-    public long createTableBooking(String username, String displayName, String date, String time) {
+    public long createTableBooking(String username, String displayName, String date, String time, int partySize) {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -206,11 +203,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COL_BOOKING_DISPLAY_NAME, displayName);
         values.put(COL_BOOKING_DATE, date);
         values.put(COL_BOOKING_TIME, time);
+        values.put(COL_BOOKING_PARTY_SIZE, partySize);
         values.put(COL_BOOKING_CREATED_AT, System.currentTimeMillis());
 
         return db.insert(TABLE_BOOKINGS, null, values);
     }
 
+    public boolean updateBooking(int bookingId, String date, String time, int partySize) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COL_BOOKING_DATE, date);
+        values.put(COL_BOOKING_TIME, time);
+        values.put(COL_BOOKING_PARTY_SIZE, partySize);
+
+        int rows = db.update(TABLE_BOOKINGS, values, COL_BOOKING_ID + "=?", new String[]{String.valueOf(bookingId)});
+        return rows > 0;
+    }
 
     public List<Booking> getBookingsForUser(String username) {
         List<Booking> bookings = new ArrayList<>();
@@ -231,10 +240,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         c.getString(c.getColumnIndexOrThrow(COL_BOOKING_DATE)),
                         c.getString(c.getColumnIndexOrThrow(COL_BOOKING_TIME)),
                         c.getLong(c.getColumnIndexOrThrow(COL_BOOKING_CREATED_AT)),
-                        c.getString(c.getColumnIndexOrThrow(COL_BOOKING_DISPLAY_NAME))
+                        c.getString(c.getColumnIndexOrThrow(COL_BOOKING_DISPLAY_NAME)),
+                        c.getInt(c.getColumnIndexOrThrow(COL_BOOKING_PARTY_SIZE))
                 );
-
-
                 bookings.add(b);
             } while (c.moveToNext());
         }
@@ -261,9 +269,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         c.getString(c.getColumnIndexOrThrow(COL_BOOKING_DATE)),
                         c.getString(c.getColumnIndexOrThrow(COL_BOOKING_TIME)),
                         c.getLong(c.getColumnIndexOrThrow(COL_BOOKING_CREATED_AT)),
-                        c.getString(c.getColumnIndexOrThrow(COL_BOOKING_DISPLAY_NAME))
+                        c.getString(c.getColumnIndexOrThrow(COL_BOOKING_DISPLAY_NAME)),
+                        c.getInt(c.getColumnIndexOrThrow(COL_BOOKING_PARTY_SIZE))
                 );
-
                 bookings.add(b);
             } while (c.moveToNext());
         }
@@ -271,6 +279,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         c.close();
         return bookings;
     }
+
+    public boolean deleteBooking(int bookingId) {
+        SQLiteDatabase db = getWritableDatabase();
+        int rows = db.delete(TABLE_BOOKINGS, COL_BOOKING_ID + "=?", new String[]{String.valueOf(bookingId)});
+        return rows > 0;
+    }
+
     public long addNotification(String recipient, String category, String message) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues v = new ContentValues();
@@ -324,12 +339,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return out;
     }
 
-
-    public boolean deleteBooking(int bookingId) {
-        SQLiteDatabase db = getWritableDatabase();
-        int rows = db.delete(TABLE_BOOKINGS, COL_BOOKING_ID + "=?", new String[]{String.valueOf(bookingId)});
-        return rows > 0;
-    }
     public boolean deleteNotification(int notifId) {
         SQLiteDatabase db = getWritableDatabase();
         int rows = db.delete(TABLE_NOTIFICATIONS, COL_NOTIF_ID + "=?", new String[]{String.valueOf(notifId)});
@@ -358,5 +367,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             );
         }
     }
-
 }

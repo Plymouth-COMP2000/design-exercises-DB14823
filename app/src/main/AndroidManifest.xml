@@ -38,6 +38,7 @@
         <activity android:name=".ui.Staff.EditMenuItemActivity"/>
         <activity android:name=".ui.Staff.StaffManageBookingsActivity"/>
         <activity android:name=".ui.Staff.StaffNotificationsActivity" />
+        <activity android:name=".ui.Customer.EditBookingActivity" />
 
 
     </application>

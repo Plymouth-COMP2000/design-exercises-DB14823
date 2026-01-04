@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="14dp"
-                android:text="Add Menu Item"
+                android:text="@string/add_menu_item"
                 android:textSize="17sp"
                 android:textStyle="bold" />
 
@@ -93,7 +93,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/edittext_background"
-                android:hint="Item name"
+                android:hint="@string/item_name"
                 android:maxWidth="320dp"
                 android:padding="12dp" />
 
@@ -106,7 +106,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/edittext_background"
-                android:hint="Price (e.g. 5.00)"
+                android:hint="@string/price"
                 android:inputType="numberDecimal"
                 android:maxWidth="320dp"
                 android:padding="12dp" />
@@ -120,7 +120,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/edittext_background"
-                android:hint="Allergy info (optional)"
+                android:hint="@string/allergy_info"
                 android:maxWidth="320dp"
                 android:padding="12dp" />
 
@@ -135,7 +135,7 @@
                 android:layout_marginBottom="22dp"
                 android:background="@drawable/button_ripple"
                 android:maxWidth="240dp"
-                android:text="Save"
+                android:text="@string/save"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>

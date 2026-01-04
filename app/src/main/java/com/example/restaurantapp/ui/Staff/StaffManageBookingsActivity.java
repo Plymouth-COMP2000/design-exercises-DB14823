@@ -50,8 +50,7 @@ public class StaffManageBookingsActivity extends AppCompatActivity {
             db.addNotification(
                     "customer:" + booking.username,
                     "BOOKING_CANCELLED_BY_STAFF",
-                    "Your booking on " + prettyDate + " at " + booking.time + " was cancelled by staff."
-            );
+                    "Your booking for " + booking.partySize + " on " + prettyDate + " at " + booking.time + " was cancelled by staff."            );
 
             if (!ok) Toast.makeText(this, "Delete failed", Toast.LENGTH_SHORT).show();
             loadBookings();

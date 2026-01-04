@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="@string/restaurant_name"
         android:textStyle="bold"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp" />
 
@@ -27,7 +27,7 @@
         android:id="@+id/txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Manage Bookings"
+        android:text="@string/manage_bookings"
         android:textStyle="bold"
         android:textSize="18sp"
         android:layout_below="@id/txtRestaurantName"

@@ -48,6 +48,17 @@ public class BookingsAdapter extends RecyclerView.Adapter<BookingsAdapter.Bookin
 
         holder.txtDate.setText(b.date);
         holder.txtTime.setText(b.time);
+        holder.txtParty.setText(String.valueOf(b.partySize));
+        holder.itemView.setOnClickListener(v -> {
+            android.content.Intent i = new android.content.Intent(v.getContext(), com.example.restaurantapp.ui.Customer.EditBookingActivity.class);
+            i.putExtra(com.example.restaurantapp.ui.Customer.EditBookingActivity.EXTRA_BOOKING_ID, b.id);
+            i.putExtra(com.example.restaurantapp.ui.Customer.EditBookingActivity.EXTRA_USERNAME, b.username);
+            i.putExtra(com.example.restaurantapp.ui.Customer.EditBookingActivity.EXTRA_DISPLAY_NAME, b.displayName == null ? "" : b.displayName);
+            i.putExtra(com.example.restaurantapp.ui.Customer.EditBookingActivity.EXTRA_DATE, b.date);
+            i.putExtra(com.example.restaurantapp.ui.Customer.EditBookingActivity.EXTRA_TIME, b.time);
+            i.putExtra(com.example.restaurantapp.ui.Customer.EditBookingActivity.EXTRA_PARTY_SIZE, b.partySize);
+            v.getContext().startActivity(i);
+        });
 
         holder.btnDelete.setOnClickListener(v -> {
             if (deleteListener != null) deleteListener.onDeleteClicked(b);
@@ -63,12 +74,13 @@ public class BookingsAdapter extends RecyclerView.Adapter<BookingsAdapter.Bookin
         TextView txtDate;
         TextView txtTime;
         ImageView btnDelete;
-
+        TextView txtParty;
         BookingVH(@NonNull View itemView) {
             super(itemView);
             txtDate = itemView.findViewById(R.id.txtBookingDate);
             txtTime = itemView.findViewById(R.id.txtBookingTime);
             btnDelete = itemView.findViewById(R.id.btnDelete);
+            txtParty = itemView.findViewById(R.id.txtBookingParty);
         }
     }
 }

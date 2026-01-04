@@ -4,7 +4,6 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="15dp"
     android:background="@drawable/table_design"
-    android:orientation="horizontal"
     android:padding="10dp">
 
     <TextView
@@ -12,18 +11,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Booked by: Test User"
+        android:text="@string/booked_by"
         android:textSize="14sp"
         android:textStyle="bold" />
-
 
     <TextView
         android:id="@+id/txtBookingTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtBookingUser"
-        android:layout_weight="1"
         android:text="@string/time"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/txtBookingParty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtBookingTime"
+        android:layout_marginTop="6dp"
+        android:text="@string/placeholder_party"
         android:textSize="16sp" />
 
     <ImageView

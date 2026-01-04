@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="14dp"
-                android:text="Edit Menu Item"
+                android:text="@string/edit_menu_item"
                 android:textSize="17sp"
                 android:textStyle="bold" />
 
@@ -79,7 +79,8 @@
                 android:background="@drawable/edittext_background"
                 android:drawableEnd="@drawable/ic_dropdown_arrow_down"
                 android:drawablePadding="12dp"
-                android:paddingEnd="10dp" />
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"/>
 
 
             <EditText
@@ -91,7 +92,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/edittext_background"
-                android:hint="Item name"
+                android:hint="@string/item_name"
                 android:maxWidth="320dp"
                 android:padding="12dp" />
 
@@ -104,7 +105,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/edittext_background"
-                android:hint="Price (e.g. 5.00)"
+                android:hint="@string/price"
                 android:inputType="numberDecimal"
                 android:maxWidth="320dp"
                 android:padding="12dp" />
@@ -118,7 +119,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/edittext_background"
-                android:hint="Allergy info"
+                android:hint="@string/allergy_info"
                 android:maxWidth="320dp"
                 android:padding="12dp" />
 
@@ -132,7 +133,7 @@
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/button_ripple"
                 android:maxWidth="240dp"
-                android:text="Save changes"
+                android:text="@string/save_changes"
                 android:textColor="@android:color/white" />
 
             <Button
@@ -146,7 +147,7 @@
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/button_ripple"
                 android:maxWidth="240dp"
-                android:text="Delete item"
+                android:text="@string/delete_item"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>

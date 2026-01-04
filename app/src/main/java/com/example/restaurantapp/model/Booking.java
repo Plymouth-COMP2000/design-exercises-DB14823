@@ -7,13 +7,15 @@ public class Booking {
     public String time;
     public long createdAt;
     public String displayName;
+    public int partySize;
 
-    public Booking(int id, String username, String date, String time, long createdAt, String displayName) {
+    public Booking(int id, String username, String date, String time, long createdAt, String displayName, int partySize) {
         this.id = id;
         this.username = username;
         this.displayName = displayName;
         this.date = date;
         this.time = time;
         this.createdAt = createdAt;
+        this.partySize = partySize;
     }
 }

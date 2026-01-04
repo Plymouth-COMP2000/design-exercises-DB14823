@@ -58,5 +58,32 @@
     <string name="manage_bookings">Manage Bookings</string>
     <string name="staff_welcome">Hello, valued member of staff</string>
     <string name="notification_settings">Notification\nSettings</string>
+    <string name="Party_size">Select party size</string>
+    <string name="add_menu_item">Add Menu Item</string>
+    <string name="item_name">Item name</string>
+    <string name="price">Price (e.g. 5.00)</string>
+    <string name="allergy_info">Allergy info (optional)</string>
+    <string name="save">Save</string>
+    <string name="first_name">Enter First Name</string>
+    <string name="john">John</string>
+    <string name="last_name">Enter Last Name</string>
+    <string name="smith">Smith</string>
+    <string name="new_date">Select new date</string>
+    <string name="new_time">Select new time</string>
+    <string name="party_size">Select party size</string>
+    <string name="confirm_changes">Confirm changes</string>
+    <string name="edit_menu_item">Edit Menu Item</string>
+    <string name="save_changes">Save changes</string>
+    <string name="delete_item">Delete item</string>
+    <string name="tagline">Comfort food • Cozy tables</string>
+    <string name="open">Open daily • 9am – 9pm</string>
+    <string name="add_new_item">+ Add new item</string>
+    <string name="clear_all">Clear all</string>
+    <string name="settings">Settings</string>
+    <string name="booking_tap">Tap a booking to edit</string>
+    <string name="placeholder_date">Mon 01 Jan 2026</string>
+    <string name="booked_by">Booked by: Test User</string>
+    <string name="placeholder_party">Party size: 2</string>
+    <string name="_2">2</string>
 
 </resources>

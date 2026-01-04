@@ -62,8 +62,7 @@ public class CustomerBookingsActivity extends AppCompatActivity {
             db.addNotification(
                     "staff",
                     "BOOKING_CANCELLED_BY_CUSTOMER",
-                    who + " cancelled a booking."
-            );
+                    who + " cancelled a booking for " + booking.partySize + "."            );
 
             loadBookings();
         });

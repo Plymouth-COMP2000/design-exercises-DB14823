@@ -3,7 +3,9 @@ package com.example.restaurantapp.ui.Customer;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,58 +19,85 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class AddBookingActivity extends AppCompatActivity {
+public class EditBookingActivity extends AppCompatActivity {
 
+    public static final String EXTRA_BOOKING_ID = "BOOKING_ID";
     public static final String EXTRA_USERNAME = "USERNAME";
     public static final String EXTRA_DISPLAY_NAME = "DISPLAY_NAME";
+    public static final String EXTRA_DATE = "DATE";
+    public static final String EXTRA_TIME = "TIME";
+    public static final String EXTRA_PARTY_SIZE = "PARTY_SIZE";
 
+    private int bookingId;
+    private String username;
+    private String displayName;
 
     private TextView txtSelectDate;
     private TextView txtSelectTime;
-    private Button btnConfirm;
+    private EditText edtPartySize;
 
-    private String selectedDate = null;
-    private String selectedTime = null;
-    private String username;
-    private android.widget.EditText edtPartySize;
+    private String selectedDate;
+    private String selectedTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (!com.example.restaurantapp.data.session.SessionManager.isLoggedIn(this)
                 || com.example.restaurantapp.data.session.SessionManager.getRole(this)
                 != com.example.restaurantapp.data.session.SessionManager.Role.CUSTOMER) {
-            startActivity(new android.content.Intent(
-                    this,
-                    com.example.restaurantapp.ui.Customer.CustomerLoginActivity.class
-            ));
+            startActivity(new android.content.Intent(this, com.example.restaurantapp.ui.Customer.CustomerLoginActivity.class));
             finish();
             return;
         }
 
-        setContentView(R.layout.activity_add_booking);
+        setContentView(R.layout.activity_customer_edit_booking);
+
+        bookingId = getIntent().getIntExtra(EXTRA_BOOKING_ID, -1);
+        username = getIntent().getStringExtra(EXTRA_USERNAME);
+        displayName = getIntent().getStringExtra(EXTRA_DISPLAY_NAME);
+
+        if (bookingId == -1 || username == null || username.trim().isEmpty()) {
+            Toast.makeText(this, "Missing booking info", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
+        if (displayName == null) displayName = "";
+
+        selectedDate = getIntent().getStringExtra(EXTRA_DATE);
+        selectedTime = getIntent().getStringExtra(EXTRA_TIME);
+        int partySize = getIntent().getIntExtra(EXTRA_PARTY_SIZE, 2);
 
         ImageView btnBack = findViewById(R.id.btnBack);
         txtSelectDate = findViewById(R.id.txtSelectDate);
         txtSelectTime = findViewById(R.id.txtSelectTime);
         edtPartySize = findViewById(R.id.edtPartySize);
-        btnConfirm = findViewById(R.id.btnConfirmBooking);
+        Button btnSave = findViewById(R.id.btnConfirmBooking);
 
         btnBack.setOnClickListener(v -> finish());
 
-        username = getIntent().getStringExtra(EXTRA_USERNAME);
-        if (username == null || username.isEmpty()) {
-            Toast.makeText(this, "Missing user info", Toast.LENGTH_SHORT).show();
-            finish();
-            return;
+        if (selectedDate != null) {
+            txtSelectDate.setText(formatDateForDisplay(selectedDate));
+            txtSelectDate.setAlpha(1f);
+            txtSelectDate.setSelected(true);
+        } else {
+            txtSelectDate.setAlpha(0.7f);
         }
 
-        txtSelectDate.setAlpha(0.7f);
-        txtSelectTime.setAlpha(0.7f);
+        if (selectedTime != null) {
+            txtSelectTime.setText(selectedTime);
+            txtSelectTime.setAlpha(1f);
+            txtSelectTime.setSelected(true);
+        } else {
+            txtSelectTime.setAlpha(0.7f);
+        }
+
+        edtPartySize.setText(String.valueOf(partySize));
 
         txtSelectDate.setOnClickListener(v -> showDatePicker());
         txtSelectTime.setOnClickListener(v -> showTimePicker());
-        btnConfirm.setOnClickListener(v -> confirmBooking());
+        btnSave.setOnClickListener(v -> saveChanges());
     }
 
     private void showDatePicker() {
@@ -81,7 +110,6 @@ public class AddBookingActivity extends AppCompatActivity {
         }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
 
         dlg.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
-
         dlg.show();
     }
 
@@ -100,14 +128,14 @@ public class AddBookingActivity extends AppCompatActivity {
         dlg.show();
     }
 
-    private void confirmBooking() {
+    private void saveChanges() {
         if (selectedDate == null || selectedTime == null) {
             Toast.makeText(this, "Please select a date and time", Toast.LENGTH_SHORT).show();
             return;
         }
 
         String partyStr = edtPartySize.getText().toString().trim();
-        if (partyStr.isEmpty()) {
+        if (TextUtils.isEmpty(partyStr)) {
             Toast.makeText(this, "Please enter party size", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -125,27 +153,24 @@ public class AddBookingActivity extends AppCompatActivity {
             return;
         }
 
-        String displayName = getIntent().getStringExtra(EXTRA_DISPLAY_NAME);
-        if (displayName == null) displayName = "";
-
         DatabaseHelper db = new DatabaseHelper(this);
-        long newId = db.createTableBooking(username, displayName, selectedDate, selectedTime, partySize);
+        boolean ok = db.updateBooking(bookingId, selectedDate, selectedTime, partySize);
 
-        if (newId == -1) {
-            Toast.makeText(this, "Booking failed", Toast.LENGTH_SHORT).show();
+        if (!ok) {
+            Toast.makeText(this, "Update failed", Toast.LENGTH_SHORT).show();
             return;
         }
 
+        String who = displayNameOrEmail(displayName, username);
         String prettyDate = formatDateDdMmYyyy(selectedDate);
+
         db.addNotification(
                 "staff",
-                "BOOKING_CREATED",
-                (displayName.isEmpty() ? username : displayName) +
-                        " booked a table for " + partySize +
-                        " at " + selectedTime + " on " + prettyDate
+                "BOOKING_UPDATED",
+                who + " updated a booking to " + selectedTime + " on " + prettyDate + " for " + partySize
         );
 
-        Toast.makeText(this, "Booking created!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Booking updated!", Toast.LENGTH_SHORT).show();
         finish();
     }
 
@@ -154,6 +179,17 @@ public class AddBookingActivity extends AppCompatActivity {
         cal.set(year, monthZeroBased, day);
         SimpleDateFormat fmt = new SimpleDateFormat("EEE d MMM yyyy", Locale.UK);
         return fmt.format(cal.getTime());
+    }
+
+    private String formatDateForDisplay(String yyyyMmDd) {
+        try {
+            java.text.SimpleDateFormat inFmt = new java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.UK);
+            java.text.SimpleDateFormat outFmt = new java.text.SimpleDateFormat("EEE d MMM yyyy", java.util.Locale.UK);
+            java.util.Date d = inFmt.parse(yyyyMmDd);
+            return outFmt.format(d);
+        } catch (Exception e) {
+            return yyyyMmDd;
+        }
     }
 
     private String formatDateDdMmYyyy(String yyyyMmDd) {
@@ -172,7 +208,6 @@ public class AddBookingActivity extends AppCompatActivity {
         displayName = displayName.trim();
         return displayName.isEmpty() ? email : displayName;
     }
-
 
     private void markSelected(TextView tv) {
         tv.setAlpha(1f);

@@ -87,7 +87,8 @@ public class StaffBookingsAdapter extends RecyclerView.Adapter<RecyclerView.View
                     (b.displayName == null || b.displayName.isEmpty()
                             ? b.username
                             : b.displayName));
-            vh.txtTime.setText(b.time);
+            vh.txtParty.setText("Party size: " + b.partySize);
+            vh.txtTime.setText("Time: " + b.time);
             vh.btnDelete.setOnClickListener(v -> {
                 if (deleteListener != null) deleteListener.onDeleteClicked(b);
             });
@@ -113,6 +114,8 @@ public class StaffBookingsAdapter extends RecyclerView.Adapter<RecyclerView.View
         TextView txtDate;
         TextView txtTime;
         ImageView btnDelete;
+        TextView txtParty;
+
 
         BookingVH(@NonNull View itemView) {
             super(itemView);
@@ -120,6 +123,7 @@ public class StaffBookingsAdapter extends RecyclerView.Adapter<RecyclerView.View
             txtDate = itemView.findViewById(R.id.txtBookingDate);
             txtTime = itemView.findViewById(R.id.txtBookingTime);
             btnDelete = itemView.findViewById(R.id.btnDelete);
+            txtParty = itemView.findViewById(R.id.txtBookingParty);
         }
     }
 
