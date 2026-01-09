@@ -1,5 +1,7 @@
 # Restaurant app - COMP2000 assessment
 
+## Youtube link for video submission - https://youtu.be/ypuafy8gniw
+
 ## Overview
 
 This is a mobile application, designed for a restaurant, which is intended to be used by the customers and staff. 
